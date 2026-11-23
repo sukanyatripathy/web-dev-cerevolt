@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import ChildSidebar from "../../components/ChildSidebar";
 import "./playgames.css";
+import GameLauncher from "./games/GameLauncher";
+import { saveGameSession } from "../../services/gameplayService.js";
 
 const games = [
   {
@@ -11,6 +13,7 @@ const games = [
     color: "word-game",
     tag: "Brain Booster",
     route: "/child/games/word-puzzle",
+    gameKey: "word-puzzle",
   },
   {
     id: 2,
@@ -20,6 +23,7 @@ const games = [
     color: "math-game",
     tag: "Number Fun",
     route: "/child/games/math-magic",
+    gameKey: "math-magic",
   },
   {
     id: 3,
@@ -29,6 +33,7 @@ const games = [
     color: "memory-game",
     tag: "Memory Challenge",
     route: "/child/games/memory-match",
+    gameKey: "memory-match",
   },
   {
     id: 4,
@@ -38,10 +43,20 @@ const games = [
     color: "science-game",
     tag: "Explore & Learn",
     route: "/child/games/science-explorer",
+    gameKey: "science-explorer",
   },
 ];
 
 function PlayGames() {
+  const [activeGame, setActiveGame] = useState(null);
+
+  const handlePlay = (game) => {
+    if (game.gameKey) {
+      setActiveGame(game.gameKey);
+    } else {
+      alert(`${game.title} is coming soon!`);
+    }
+  };
   return (
     <div className="child-layout">
       <ChildSidebar />
@@ -95,7 +110,7 @@ function PlayGames() {
 
                 <button
                   className="play-game-button"
-                  onClick={() => alert(`${game.title} is coming soon!`)}
+                  onClick={() => handlePlay(game)}
                 >
                   Play Now <span>→</span>
                 </button>
@@ -110,6 +125,13 @@ function PlayGames() {
           <span>🌟</span>
         </footer>
       </main>
+      {activeGame && (
+        <GameLauncher
+          gameKey={activeGame}
+          onClose={() => setActiveGame(null)}
+          onSave={saveGameSession}
+        />
+      )}
     </div>
   );
 }

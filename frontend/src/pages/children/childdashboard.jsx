@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ChildSidebar from "../../components/ChildSidebar";
+import FamilyIdCard from "./FamilyIdCard.jsx";
 import "./childdashboard.css";
 
 const activities = [
@@ -91,7 +92,7 @@ function ChildDashboard() {
             </div>
           </div>
         </section>
-
+        <FamilyIdCard />
         <section className="child-section">
           <div className="child-section-heading">
             <div>

@@ -2,6 +2,8 @@
 import React from "react";
 import ParentSidebar from "../../components/ParentSidebar";
 import "./childprogressreport.css";
+import GameResultsSection from "./GameResultsSection.jsx";
+
 
 const subjectProgress = [
   { name: "Mathematics", score: 82, previous: 74, color: "#4776d0" },
@@ -202,7 +204,7 @@ function ChildProgressReport() {
             </table>
           </div>
         </section>
-
+        <GameResultsSection />
         <p className="progress-demo-disclaimer">
           Demonstration data only. Actual progress records will be connected
           when the backend is available.

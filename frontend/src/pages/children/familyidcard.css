@@ -1,0 +1,85 @@
+.family-id-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 22px 0;
+  padding: 22px 24px;
+  border-radius: 22px;
+  background: #fff6dd;
+  border: 1px solid #f3e3b0;
+}
+
+.family-id-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #ffe9a8;
+  font-size: 28px;
+}
+
+.family-id-kicker {
+  color: #a8741a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.family-id-body h2 {
+  margin: 6px 0;
+  color: #5a4210;
+  font-size: 21px;
+}
+
+.family-id-body p {
+  margin: 0 0 12px;
+  color: #7a6330;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.family-id-code {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #3a2e0c;
+  font-family: "Courier New", monospace;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.family-id-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.family-id-actions button {
+  min-height: 44px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #e0a526;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.family-id-actions button:hover {
+  background: #c98f17;
+}
+
+.family-id-body small {
+  color: #8f7a45;
+}
+
+.family-id-error {
+  color: #8a5a00;
+}

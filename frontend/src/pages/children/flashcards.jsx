@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ChildSidebar from "../../components/ChildSidebar";
+import moreFlashcards from "./moreFlashcards";
 import "./flashcards.css";
 
 const flashcardData = [
@@ -33,21 +34,60 @@ const flashcardData = [
   },
 ];
 
+
+const CATEGORY_COLORS = {
+  Science: "science-card",        
+  Mathematics: "math-card",       
+  English: "english-card",
+  Nature: "nature-card",
+  Universe: "universe-card",
+  Cricket: "cricket-card",
+  Football: "football-card",
+  Music: "music-card",
+  Games: "games-card",
+};
+
+
+const allCards = [
+  ...flashcardData,
+  ...moreFlashcards.map((card) => ({
+    ...card,
+    color: CATEGORY_COLORS[card.category] || "science-card",
+  })),
+];
+
+
+const categories = ["All", ...new Set(allCards.map((card) => card.category))];
+
 function Flashcards() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All"); 
 
-  const currentCard = flashcardData[currentIndex];
+  
+  const visibleCards =
+    selectedCategory === "All"
+      ? allCards
+      : allCards.filter((card) => card.category === selectedCategory);
+
+  const currentCard = visibleCards[currentIndex]; 
 
   const nextCard = () => {
-    setCurrentIndex((prev) => (prev + 1) % flashcardData.length);
+    setCurrentIndex((prev) => (prev + 1) % visibleCards.length); 
     setFlipped(false);
   };
 
   const previousCard = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + flashcardData.length) % flashcardData.length
+      (prev) => (prev - 1 + visibleCards.length) % visibleCards.length 
     );
+    setFlipped(false);
+  };
+
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    setCurrentIndex(0);
     setFlipped(false);
   };
 
@@ -81,8 +121,28 @@ function Flashcards() {
               <p>Choose a card and test what you know.</p>
             </div>
             <span className="flashcards-counter">
-              {currentIndex + 1} / {flashcardData.length}
+              {currentIndex + 1} / {visibleCards.length}
             </span>
+          </div>
+
+          {/* New: Topic selection buttons */}
+          <div
+            className="flashcards-filters"
+            role="group"
+            aria-label="Choose a topic"
+          >
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={`flashcards-filter ${
+                  selectedCategory === category ? "flashcards-filter-active" : ""
+                }`}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category}
+              </button>
+            ))}
           </div>
 
           <div className="flashcard-container">
@@ -114,9 +174,14 @@ function Flashcards() {
                 {flipped ? currentCard.answer : currentCard.question}
               </h3>
 
-              <p className="flashcard-hint">
+              {/* Changed: If there is a "Did you know?" fact behind the answer,show it */}
+              <p
+                className={
+                  flipped && currentCard.fact ? "flashcard-fact" : "flashcard-hint"
+                }
+              >
                 {flipped
-                  ? "Great job! Keep learning."
+                  ? currentCard.fact || "Great job! Keep learning."
                   : "Tap this card to reveal the answer"}
               </p>
             </div>

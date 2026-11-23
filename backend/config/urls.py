@@ -21,6 +21,9 @@ urlpatterns = [
 
     path('chatbot/', include('apps.chatbot.urls')),
 
+    path('gameplay/', include('apps.gameplay.urls')),
+    
+
 ]
 
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/useAuth.js";
+import { parentSignup } from "../../services/gameplayService.js";
 import "./login.css";
 
 const ROLE_OPTIONS = [
@@ -17,6 +18,7 @@ function Register() {
   const { register } = useAuth();
   const [formData, setFormData] = useState({
     role: "parent",
+    child_code: "",
     first_name: "",
     last_name: "",
     email: "",
@@ -61,6 +63,9 @@ function Register() {
 
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = "Passwords do not match.";
+    }
+        if (formData.role === "parent" && !formData.child_code.trim()) {
+      newErrors.child_code = "Please enter your child's Family ID code.";
     }
 
     setErrors(newErrors);
@@ -117,7 +122,14 @@ function Register() {
     };
 
     try {
-      await register(payload);
+          if (formData.role === "parent") {
+            await parentSignup({
+              ...payload,
+          child_code: formData.child_code.trim(),
+          });
+        } else {
+          await register(payload);
+        }
 
       setSuccess({
         title: "Account created",
@@ -215,6 +227,35 @@ function Register() {
                 </span>
               )}
             </div>
+            {formData.role === "parent" && (
+              <div className="form-group">
+                <label htmlFor="child_code">Your child's Family ID code</label>
+
+                <input
+                  id="child_code"
+                  name="child_code"
+                  type="text"
+                  placeholder="Example: K7M2-9QXA"
+                  value={formData.child_code}
+                  onChange={handleChange}
+                  autoComplete="off"
+                  maxLength={20}
+                  aria-invalid={Boolean(errors.child_code)}
+                  aria-describedby="child-code-help"
+                />
+
+                <small id="child-code-help" style={{ fontSize: 12, color: "#6b7a99" }}>
+                  Your child must sign in first. Ask them to open their
+                  dashboard and show you their Family ID.
+                </small>
+
+                {errors.child_code && (
+                  <span className="form-error" id="child-code-error">
+                    {errors.child_code}
+                  </span>
+                )}
+              </div>
+            )}
 
             <>
               <div className="form-group">

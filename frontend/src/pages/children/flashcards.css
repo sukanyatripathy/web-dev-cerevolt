@@ -262,3 +262,68 @@
     font-size: 20px;
   }
 }
+
+
+.universe-card {
+  background: #def2fb;
+}
+
+.cricket-card {
+  background: #fff3d1;
+}
+
+.football-card {
+  background: #ffe5e5;
+}
+
+.music-card {
+  background: #fde6f2;
+}
+
+.games-card {
+  background: #eaeaf7;
+}
+
+
+.flashcard-fact {
+  max-width: 460px;
+  color: #4d5d78;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+
+.flashcards-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.flashcards-filter {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  background: #e5edff;
+  color: #426da9;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.flashcards-filter:hover {
+  background: #d5e4ff;
+}
+
+.flashcards-filter-active {
+  background: #397bd3;
+  color: white;
+}
+
+.flashcards-filter-active:hover {
+  background: #2865b7;
+}
