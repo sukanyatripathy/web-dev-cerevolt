@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'apps.reports',
     'apps.chatbot',
     'apps.gameplay',
+    'apps.assessments',
+    'apps.videos',
 ]
 
 

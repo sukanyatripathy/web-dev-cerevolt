@@ -24,7 +24,12 @@ urlpatterns = [
     path('gameplay/', include('apps.gameplay.urls')),
     
 
+    
+    path('assessments/', include('apps.assessments.urls')),
+    
+    path('videos/', include('apps.videos.urls')),
 ]
+
 
 
 

@@ -1,0 +1,155 @@
+.cr-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cr-download {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  background: #4776d0;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cr-download:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.cr-error {
+  background: #fde6e6;
+  color: #b42318;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+.cr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.cr-panel h3 {
+  margin: 0 0 12px;
+}
+
+.cr-bar-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 4px 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cr-bar-row small {
+  grid-column: 2;
+  color: #5b6b8a;
+}
+
+.cr-bar {
+  height: 10px;
+  background: #e8eef9;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cr-bar-fill {
+  height: 100%;
+  background: #4776d0;
+  border-radius: 999px;
+}
+
+.cr-small {
+  margin: 10px 0 6px;
+  color: #5b6b8a;
+  font-size: 0.9rem;
+}
+
+.cr-risk-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cr-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cr-chip-low {
+  background: #e3f5ec;
+  color: #1b7a4b;
+}
+
+.cr-chip-medium {
+  background: #fff3dc;
+  color: #a86b00;
+}
+
+.cr-chip-high {
+  background: #fde6e6;
+  color: #b42318;
+}
+
+.cr-none {
+  color: #8a96ad;
+}
+
+.cr-view {
+  border: 1px solid #cfd8e8;
+  background: #fff;
+  color: #4776d0;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cr-selected td {
+  background: #f1f5fd;
+}
+
+.cr-detail {
+  margin-top: 20px;
+}
+
+.cr-detail-head h2 {
+  margin: 0 0 4px;
+}
+
+.cr-detail-head p {
+  margin: 0 0 14px;
+  color: #5b6b8a;
+}
+
+.cr-answers-row td {
+  background: #f6f8fd;
+  padding: 14px 18px;
+}
+
+.cr-indicators {
+  margin: 0 0 12px 18px;
+}
+
+.cr-answers {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.cr-answers th,
+.cr-answers td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid #e3e9f5;
+}
