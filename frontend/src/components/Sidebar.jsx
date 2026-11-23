@@ -1,4 +1,3 @@
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
@@ -37,6 +36,12 @@ const Sidebar = () => {
           <NavLink to="/admin/reports" className={getLinkClass}>
             <span>▤</span>
             Reports & Analytics
+          </NavLink>
+
+          {/* NEW: children search, analysis and research export */}
+          <NavLink to="/admin/children" className={getLinkClass}>
+            <span>◎</span>
+            Children &amp; Analysis
           </NavLink>
 
           <NavLink to="/admin/manage-content" className={getLinkClass}>

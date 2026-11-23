@@ -12,6 +12,7 @@ import AdminReport from "../pages/admin/adminreport";
 import ManageGame from "../pages/admin/managegame";
 import ManageContent from "../pages/admin/managecontent";
 import Settings from "../pages/admin/settings";
+import AdminChildRecords from "../pages/admin/childrecords";
 
 import Home from "../pages/common/home";
 import About from "../pages/common/about";
@@ -26,7 +27,7 @@ import DailyGoals from "../pages/children/dailygoals.jsx";
 import PlayGames from "../pages/children/playgames.jsx";
 import Flashcards from "../pages/children/flashcards.jsx";
 import SolveAssessments from "../pages/children/solveassesments.jsx";
-import WatchVideos from "../pages/children/watchvideos.jsx";
+import WatchVideos from "../pages/children/watchlearn.jsx";
 import Reward from "../pages/children/reward.jsx";
 
 import ParentDashboard from "../pages/parents/parentdashboard.jsx";
@@ -39,6 +40,7 @@ import ConsultantDashboard from "../pages/consultant/consultantdashboard.jsx";
 import ConsultantAssessment from "../pages/consultant/consultantassesment.jsx";
 import ConsultantContentAddition from "../pages/consultant/consultantcontentaddition.jsx";
 import ConsultantProgressReport from "../pages/consultant/consultantprogressreport.jsx";
+import ChildScreening from "../pages/parents/childscreening.jsx";
 import ConsultantSidebar from "../components/ConsultantSidebar.jsx";
 
 import SchoolDashboard from "../pages/school/schooldashboard.jsx";
@@ -47,6 +49,8 @@ import SchoolAssessment from "../pages/school/schoolassesment.jsx";
 import SchoolContentAddition from "../pages/school/schoolcontentaddition.jsx";
 import StudentProgress from "../pages/school/studentprogress.jsx";
 import BehaviourMonitoring from "../pages/school/behaviourmonitoring.jsx";
+
+
 
 function ConsultantLayout({ children }) {
   return (
@@ -101,7 +105,8 @@ function AppRoutes() {
           <Route path="/admin/add-doctor" element={<AddConsultant />} />
           <Route path="/admin/add-product" element={<AddProduct />} />
           <Route path="/admin/reports" element={<AdminReport />} />
-          <Route path="/admin/manage-games" element={<ManageGame />} />
+          <Route path="/admin/children" element={<AdminChildRecords />} />
+		  <Route path="/admin/manage-games" element={<ManageGame />} />
           <Route path="/admin/manage-content" element={<ManageContent />} />
           <Route path="/admin/settings" element={<Settings />} />
         </Route>
@@ -121,7 +126,8 @@ function AppRoutes() {
         <Route element={<RoleRoute allowedRoles={["parent"]} />}>
           <Route path="/parent/dashboard" element={<ParentDashboard />} />
           <Route path="/parent/progress" element={<ChildProgressReport />} />
-          <Route path="/parent/doctor-support" element={<DoctorSupport />} />
+                    <Route path="/parent/screening" element={<ChildScreening />} />
+		  <Route path="/parent/doctor-support" element={<DoctorSupport />} />
           <Route path="/parent/feedback" element={<FeedbackForm />} />
           <Route path="/parent/assistant" element={<ParentChatbot />} />
         </Route>

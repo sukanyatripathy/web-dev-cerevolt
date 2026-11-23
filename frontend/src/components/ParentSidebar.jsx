@@ -7,6 +7,7 @@ import LogoutButton from "./LogoutButton";
 const parentLinks = [
   { to: "/parent/dashboard", icon: "▦", label: "Dashboard" },
   { to: "/parent/progress", icon: "▤", label: "Child Progress" },
+    { to: "/parent/screening", icon: "◎", label: "Screening Results" },
   { to: "/parent/doctor-support", icon: "✚", label: "Doctor Support" },
   { to: "/parent/feedback", icon: "✉", label: "Feedback" },
   { to: "/parent/assistant", icon: "◉", label: "Parent Assistant" },

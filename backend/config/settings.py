@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'apps.school',
     'apps.reports',
     'apps.chatbot',
+    'apps.assessments',
+    'apps.videos',
 ]
 
 

@@ -20,8 +20,12 @@ urlpatterns = [
     path('reports/', include('apps.reports.urls')),
 
     path('chatbot/', include('apps.chatbot.urls')),
-
+    
+    path('assessments/', include('apps.assessments.urls')),
+    
+    path('videos/', include('apps.videos.urls')),
 ]
+
 
 
 
